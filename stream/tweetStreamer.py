@@ -7,11 +7,58 @@ from tweepy import Stream
 import argparse
 from datetime import datetime
 # from tweetProcess import uploadImg, postRequest
-from DB_Communicator import send_to_db_raw, send_to_db_select
+# from DB_Communicator import send_to_db_raw, send_to_db_city
 import time
 import json
 import os
 from multiprocessing import Process
+import couchdb
+from crawlerSetting import host, port, username, password, db_name
+
+def connect_to_couch_db_server(host, port, username, password):
+    secure_remote_server = couchdb.Server('http://' + username + ':' + password + '@' + host + ':' + port)
+    return secure_remote_server
+
+
+def connect_to_database(database_name, server):
+    try:
+        return server[database_name]
+    except:
+        return server.create(database_name)
+
+## SETUP ######################################################
+server = connect_to_couch_db_server(host, port, username, password)
+database_raw = connect_to_database("raw_tweets", server)
+# database_select = connect_to_database("test_db", server)
+######################################################
+
+
+
+# # data: the dictionary format of tweet object
+def send_to_db_raw(tweet_, db=database_raw):
+    
+    # set tweet id as the document id for duplication removal
+    tweet_["_id"] = "%d" % tweet_["id"]
+    tweet_["id"] = "%d" % tweet_["id"]
+    if tweet_ is not None:
+        try:
+            db.save(tweet_)
+        except:
+            print("error")
+            pass
+
+# data: the dictionary format of tweet object
+def send_to_db_city(tweet_, db):
+
+    # set tweet id as the document id for duplication removal
+    tweet_["_id"] = "%d" % tweet_["id"]
+    tweet_["id"] = "%d" % tweet_["id"]
+    if tweet_ is not None:
+        try:
+            db.save(tweet_)
+        except:
+            print("error")
+            pass
 
 
 # My keys and tokens
@@ -26,7 +73,7 @@ access = {"consumer_key": consumer_key,
             "access_secret": access_token_secret}
 
 # 8 capital cities
-bbox = {
+cors = {
         "sydney": [150.163056, -34.589722, 153.679723, -29],
         "melbourne": [141, -39.188889, 147.038611, -36.561667],
         "brisbane": [141, -29, 153.358056, -10.508056],
@@ -36,6 +83,8 @@ bbox = {
         "canberra": [147.038611, -36.561667, 150.163056, -34.589722],
         "darwin": [129, -25.997778, 141, -10.833333]
     }
+
+# boxes = ["great_syd", "great_mel", "great_brisbane", "great_ald"]
 
 # Get the authentication
 def getAuth(access):
@@ -92,13 +141,13 @@ def fieldSelect(tweetJson):
 
 
 def dealStream(tweetJson, file):
-
+    pass
 
     try:
         send_to_db_raw(tweetJson)
 
-        dataDict = fieldSelect(tweetJson)
-        send_to_db_select(dataDict)
+        # dataDict = fieldSelect(tweetJson)
+        # send_to_db_city(dataDict, city)
 
 
     except Exception as e:
@@ -139,20 +188,40 @@ class TweetListener(StreamListener):
         print (status)
 
 
+def stream_city(city, city_cor):
 
-
-if __name__ == '__main__':
-
-
+    db = connect_to_database(city, server)
     #This handles Twitter authetification and the connection to Twitter Streaming API
     listener = TweetListener()
     auth = getAuth(access)
     stream = Stream(auth, listener)
 
     #This line filter Twitter Streams to capture data around Victoria state
-    stream.filter(locations=args.list) 
+    stream.filter(locations=city_cor) 
 
     file.close()
+
+
+
+
+if __name__ == '__main__':
+
+
+
+
+
+    # cfs = load_configs()
+    jobs = []
+    
+    for key, value in cors.items():
+        print(key)
+        print(value)
+        
+        p = Process(target=stream_city, args=((key, value)), daemon=True)
+        jobs.append(p)
+        p.start()
+
+    [p.join() for p in jobs]
 
 
 
