@@ -168,7 +168,6 @@ access = {"consumer_key": consumer_key,
             "access_secret": access_token_secret}
 
 
-
 # Get the authentication
 def getAuth(access):
 
