@@ -72,3 +72,43 @@ const couchAuth = new NodeCouchDb({
         pass: 'yahui'
     }
 });
+// couchAuth.createDatabase('couchtest').then( err => {
+//     // request error occured
+// });
+// couchAuth.listDatabases().then(dbs => dbs.map(
+//     console.log(dbs)
+// ), err => {
+//     // request error occured
+// });
+const dbName = "echarts";
+const viewUrl = '_design/by_city_name/_view/city?key="Melbourne"';
+
+couchAuth.get(dbName, viewUrl).then(({data, headers, status}) => {
+    // data is json response
+    // headers is an object with all response headers
+    // status is statusCode number
+    const cities = data.rows
+    console.log(cities)
+    cities.forEach(myFunction);
+    // cities.forEach(searchMelbourne);
+    // if(data.rows.key = "Melbourne"){
+    //     console.log(data.rows)
+    // }
+
+}, err => {
+    // either request error occured
+    // ...or err.code=EDOCMISSING if document is missing
+    // ...or err.code=EUNKNOWN if statusCode is unexpected
+    console.log(err)
+});
+
+
+function myFunction(item) {
+    console.log(item.key, item.value.medical, item.value.education, item.value.environment,
+        item.value.transport,item.value.entertainment)
+}
+function searchMelbourne(item) {
+    if (item.key = "Melbourne"){
+        console.log(item.value.medical)
+    }
+}
