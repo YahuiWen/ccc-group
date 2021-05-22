@@ -12,19 +12,39 @@ module.exports.getFileJsonData = (filePath) =>{
     });
     return new Promise((resolve, reject) =>{
         const dbName = "echarts";
-        const viewUrl = '_design/by_city_name/_view/city?key="Melbourne"';
-//         const viewUrl = '_design/all_cities/_view/all';
+        let viewUrl = ''
+        if (filePath === 'Melbourne') {
+            viewUrl = '_design/by_city_name/_view/city?key="Melbourne"';
+        }else if (filePath === 'Sydney') {
+            viewUrl = '_design/by_city_name/_view/city?key="Sydney"';
+        }else if (filePath === 'Canberra') {
+            viewUrl = '_design/by_city_name/_view/city?key="Canberra"';
+        }else if (filePath === 'Brisbane') {
+            viewUrl = '_design/by_city_name/_view/city?key="Brisbane"';
+        }else if (filePath === 'Adelaide') {
+            viewUrl = '_design/by_city_name/_view/city?key="Adelaide"';
+        }else if (filePath === 'Perth') {
+            viewUrl = '_design/by_city_name/_view/city?key="Perth"';
+        }else if (filePath === 'Holbart') {
+            viewUrl = '_design/by_city_name/_view/city?key="Holbart"';
+        }else if (filePath === 'Darwin') {
+            viewUrl = '_design/by_city_name/_view/city?key="Darwin"';
+        }
+        // const viewUrl = '_design/by_city_name/_view/city?key='+filePath;
+        // console.log(viewUrl)
+        // const viewUrl = '_design/all_cities/_view/all';
         couchAuth.get(dbName, viewUrl).then(({data, headers, status}) => {
             // data is json response
             // headers is an object with all response headers
             // status is statusCode number
             const cities = data.rows
             // const o = cities.forEach(myFunction);
+            // var value = new Array()
             for(var key in cities){
                 var value = cities[key]
-
+                // value.push(cities[key])
             }
-            console.log(value)
+            // console.log(value)
             resolve(value)
             // console.log(data.rows)
         }, err => {
