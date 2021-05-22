@@ -58,20 +58,20 @@ webSocketService.listen()
 // books.list(function(err, body){
 //     console.log(body.rows);
 // })
-const NodeCouchDb = require('node-couchdb');
+// const NodeCouchDb = require('node-couchdb');
 
 // node-couchdb instance with default options
 // const couch = new NodeCouchDb();
 
 // not admin party
-const couchAuth = new NodeCouchDb({
-    auth: {
-        // host: '172.26.131.13',
-        // port: 5984,
-        user: 'admin',
-        pass: 'yahui'
-    }
-});
+// const couchAuth = new NodeCouchDb({
+//     auth: {
+//         // host: '172.26.131.13',
+//         // port: 5984,
+//         user: 'admin',
+//         pass: 'yahui'
+//     }
+// });
 // couchAuth.createDatabase('couchtest').then( err => {
 //     // request error occured
 // });
@@ -80,35 +80,62 @@ const couchAuth = new NodeCouchDb({
 // ), err => {
 //     // request error occured
 // });
-const dbName = "echarts";
-const viewUrl = '_design/by_city_name/_view/city?key="Melbourne"';
-
-couchAuth.get(dbName, viewUrl).then(({data, headers, status}) => {
-    // data is json response
-    // headers is an object with all response headers
-    // status is statusCode number
-    const cities = data.rows
-    console.log(cities)
-    cities.forEach(myFunction);
-    // cities.forEach(searchMelbourne);
-    // if(data.rows.key = "Melbourne"){
-    //     console.log(data.rows)
-    // }
-
-}, err => {
-    // either request error occured
-    // ...or err.code=EDOCMISSING if document is missing
-    // ...or err.code=EUNKNOWN if statusCode is unexpected
-    console.log(err)
-});
+// const dbName = "echarts";
+// const viewUrl = '_design/by_city_name/_view/city?key="Melbourne"';
+// const viewUrl = '_design/all_cities/_view/all';
 
 
-function myFunction(item) {
-    console.log(item.key, item.value.medical, item.value.education, item.value.environment,
-        item.value.transport,item.value.entertainment)
-}
-function searchMelbourne(item) {
-    if (item.key = "Melbourne"){
-        console.log(item.value.medical)
-    }
-}
+// couchAuth.get(dbName, viewUrl).then(({data, headers, status}) => {
+//     // data is json response
+//     // headers is an object with all response headers
+//     // status is statusCode number
+//     const cities = data.rows
+//     const o = cities.forEach(myFunction);
+//     console.log("is"+o)
+//     if(o !== undefined){
+//         try{
+//             // do parse
+//             JSON.parse(o)
+//             console.log(o)
+//         }
+//         catch(error){
+//             console.error("Not a JSON response")
+//         }
+//     }
+//
+// }, err => {
+//     // either request error occured
+//     // ...or err.code=EDOCMISSING if document is missing
+//     // ...or err.code=EUNKNOWN if statusCode is unexpected
+//     console.log(err)
+// });
+
+// async function myFunction(item) {
+//     'use strict';
+//     // console.log(item.key, item.value.medical, item.value.education, item.value.environment,
+//     //     item.value.transport,item.value.entertainment)
+//     // const kk = {"city": item.key, "medical": item.value.medical,
+//     //     "education":item.value.education, "environment":item.value.environment,
+//     //     "transport":item.value.transport, "entertainment":item.value.entertainment}
+//     // console.log(kk)
+//     const jsonData = {
+//         id: item.key,
+//         city: item.value.city,
+//         medical: item.value.medical,
+//         education: item.value.education,
+//         environment: item.value.environment,
+//         transport: item.value.transport,
+//         entertainment: item.value.entertainment
+//     }
+//     // const s = JSON.stringify(jsonData);
+//     console.log(jsonData)
+//     return jsonData
+//     // return new Promise((resolve, reject) =>{
+//     //     resolve(kk)
+//     // })
+// }
+// function searchMelbourne(item) {
+//     if (item.key = "Melbourne"){
+//         console.log(item.value.medical)
+//     }
+// }
