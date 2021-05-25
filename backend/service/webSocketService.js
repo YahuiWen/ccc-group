@@ -4,7 +4,7 @@ const fileUtils = require('../utils/file_utils')
 const allFileUtils = require('../utils/all_file_utils')
 const WebSocket = require('ws')
 const wss = new WebSocket.Server({
-    port: 9998
+    port: 8083
 })
 //start listening
 module.exports.listen = () => {

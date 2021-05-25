@@ -15,7 +15,7 @@ export default class ClientSocketService {
     if (!window.WebSocket) {
       return console.log('web socket is not support')
     }
-    this.ws = new WebSocket('ws://localhost:9998')
+    this.ws = new WebSocket('ws://172.26.131.13:9998')
     this.ws.onopen = () => {
       console.log('server successfully connect')
       this.connected = true

@@ -57,7 +57,6 @@ export default {
     this.chart = null
   },
   methods: {
-
     initChart() {
       this.chart = echarts.init(document.getElementById(this.id))
       const initOption = {
@@ -73,7 +72,6 @@ export default {
           left: 'left'
         },
         series: [
-
         ]
       }
       this.chart.setOption(initOption)
@@ -112,7 +110,6 @@ export default {
       const updateOption = {
         title: title,
         series: seriesArr
-
       }
       this.chart.setOption(updateOption)
     }
