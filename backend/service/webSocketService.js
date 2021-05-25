@@ -1,6 +1,8 @@
 // create a web socket server, port number 9998
 const path = require('path')
-const fileUtils = require('../utils/file_utils')
+const city_file_util = require('../utils/city_file_utils')
+const sem_fily_util = require('../utils/sem_file_utils')
+const word_fily_util = require('../utils/word_cloud_file_utils')
 const allFileUtils = require('../utils/all_file_utils')
 const WebSocket = require('ws')
 const wss = new WebSocket.Server({
@@ -23,14 +25,29 @@ module.exports.listen = () => {
                 // subject map line
                 // let path_fixed = '../data/' + messages.chartName + '.json'
                 // path_fixed = path.join(__dirname, path_fixed)
-                const ret = await fileUtils.getFileJsonData(cityPath)
+                const ret = await city_file_util.getFileJsonData(cityPath)
                 // data: json file context
                 // messages.data = ret
                 messages.return_value = ret
                 client.send(JSON.stringify(messages))
                 // client.send(messages)
                 console.log(messages)
-            }else if (action === 'getAllData'){
+            }else if (action === 'getSemData'){
+                const ret = await sem_fily_util.getFileJsonData(cityPath)
+                // data: json file context
+                // messages.data = ret
+                messages.return_value = ret
+                client.send(JSON.stringify(messages))
+                // client.send(messages)
+                console.log(messages)
+            }else if (action === 'getWordData'){
+                console.log("ask for word data")
+                const ret = await word_fily_util.getFileJsonData(cityPath)
+                messages.return_value = ret
+                client.send(JSON.stringify(messages))
+                console.log('gg'+messages)
+            }
+            else if (action === 'getAllData'){
                 const ret = await allFileUtils.getAllFileJsonData()
                 messages.return_value = ret
                 client.send(JSON.stringify(messages))

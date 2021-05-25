@@ -15,7 +15,8 @@ export default class ClientSocketService {
     if (!window.WebSocket) {
       return console.log('web socket is not support')
     }
-    this.ws = new WebSocket('ws://172.26.131.13:9998')
+    // this.ws = new WebSocket('ws://172.26.131.13:8083')
+    this.ws = new WebSocket('ws://localhost:8083')
     this.ws.onopen = () => {
       console.log('server successfully connect')
       this.connected = true
@@ -53,13 +54,48 @@ export default class ClientSocketService {
           // this.callBackMapping[socketType].call(this, realData)
           console.log('jsonData'+JSON.stringify(jsonData))
           this.callBackMapping[socketType].call(this, JSON.stringify(jsonData))
-        }else if (action === 'getAllData') {
+        } else if (action === 'getSemData') {
+          const realData = receivedData.return_value
+          var semJsonData = {
+            city: receivedData.return_value.key,
+            medical_pos: realData.value.medical_pos,
+            medical_neu: realData.value.medical_neu,
+            medical_neg: realData.value.medical_neg,
+            education_pos: realData.value.education_pos,
+            education_neu: realData.value.education_neu,
+            education_neg: realData.value.education_neg,
+            entertainment_pos: realData.value.entertainment_pos,
+            entertainment_neu: realData.value.entertainment_neu,
+            entertainment_neg: realData.value.entertainment_neg,
+            environment_pos: realData.value.environment_pos,
+            environment_neu: realData.value.environment_neu,
+            environment_neg: realData.value.environment_neg,
+            transport_pos: realData.value.transport_pos,
+            transport_neu: realData.value.transport_neu,
+            transport_neg: realData.value.transport_neg,
+          }
+          console.log('jsonData'+JSON.stringify(semJsonData))
+          this.callBackMapping[socketType].call(this, JSON.stringify(semJsonData))
+        }
+      else if (action === 'getAllData') {
           // const realData = JSON.parse(receivedData.data)
           const realData = receivedData.return_value
           // console.log('realData'+realData.value.medical)
 
           console.log('jsonData'+JSON.stringify(realData))
           this.callBackMapping[socketType].call(this, JSON.stringify(realData))
+        }
+        else if (action === 'getWordData') {
+          const realData = receivedData.return_value
+          // console.log('realData'+realData.value.medical)
+          var wordJsonData1 = {
+            city: receivedData.return_value.key,
+            word: realData.value.words
+          }
+          var wordJsonData = wordJsonData1.word
+          console.log(wordJsonData)
+          console.log('jsonData'+JSON.stringify(wordJsonData))
+          this.callBackMapping[socketType].call(this, JSON.stringify(wordJsonData))
         }
       else if (action === 'themeChange') {
           // eslint-disable-next-line no-unused-vars

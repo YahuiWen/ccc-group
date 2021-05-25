@@ -19,8 +19,14 @@ const brisbaneRouter = {
             meta: { title: 'Pie Chart', noCache: true }
         },
         {
+            path: 'rose',
+            component: () => import('@/views/brisbane/brisbaneRoseChart'),
+            name: 'RoseChart',
+            meta: { title: 'Rose Chart', noCache: true }
+        },
+        {
             path: 'word_cloud',
-            component: () => import('@/views/charts/word-cloud'),
+            component: () => import('@/views/brisbane/brisbaneWordCloud'),
             name: 'WordCloudChart',
             meta: { title: 'Word Cloud Chart', noCache: true }
         }

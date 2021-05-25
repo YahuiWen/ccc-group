@@ -18,8 +18,14 @@ const holbartRouter = {
             meta: { title: 'Pie Chart', noCache: true }
         },
         {
+            path: 'rose',
+            component: () => import('@/views/holbart/holbartRoseChart'),
+            name: 'RoseChart',
+            meta: { title: 'Rose Chart', noCache: true }
+        },
+        {
             path: 'word_cloud',
-            component: () => import('@/views/charts/word-cloud'),
+            component: () => import('@/views/holbart/holbartWordCloud'),
             name: 'WordCloudChart',
             meta: { title: 'Word Cloud Chart', noCache: true }
         }

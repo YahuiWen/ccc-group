@@ -61,6 +61,7 @@ export default {
     initChart() {
       this.chart = echarts.init(document.getElementById(this.id))
       const initOption = {
+
         legend: {},
             dataset: {
               source: [
@@ -108,15 +109,60 @@ export default {
       this.updateChart()
     },
     updateChart() {
-      const name = ''
+      // const name = ''
       // const value = this.alLData
-      const title = {
-        text: name,
-        left: 'center',
-        color: 'white'
-      }
+
       const updateOption = {
-        title: title,
+        title: [
+          {
+            subtext: 'Melbourne',
+            left: '15%',
+            top: '39%',
+            textAlign: 'center'
+          },
+          {
+            subtext: 'Sydney',
+            left: '45%',
+            top: '39%',
+            textAlign: 'center'
+          },
+          {
+            subtext: 'Darwin',
+            left: '75%',
+            top: '39%',
+            textAlign: 'center'
+          },
+          {
+            subtext: 'Adelaide',
+            left: '30%',
+            top: '69%',
+            textAlign: 'center'
+          },
+          {
+            subtext: 'Perth',
+            left: '60%',
+            top: '69%',
+            textAlign: 'center'
+          },
+          {
+            subtext: 'Brisbane',
+            left: '15%',
+            top: '99%',
+            textAlign: 'center'
+          },
+          {
+            subtext: 'Holbart',
+            left: '45%',
+            top: '99%',
+            textAlign: 'center'
+          },
+          {
+            subtext: 'Canberra',
+            left: '75%',
+            top: '99%',
+            textAlign: 'center'
+          }
+        ],
         legend: {},
         toolbar: {},
         dataset: {

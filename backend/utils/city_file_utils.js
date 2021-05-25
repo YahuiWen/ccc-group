@@ -2,14 +2,30 @@
 const fs = require('fs')
 module.exports.getFileJsonData = (filePath) =>{
     const NodeCouchDb = require('node-couchdb');
-    const couchAuth = new NodeCouchDb({
+    // const couchAuth = new NodeCouchDb({
+    //     auth: {
+    //         // host: '172.26.131.13',
+    //         // port: 5986,
+    //         user: 'admin',
+    //         pass: 'yahui'
+    //     }
+    // });
+    const couchExternal = new NodeCouchDb({
+        host: '172.26.131.13',
+        protocol: 'http',
+        port: 5986,
         auth: {
-            // host: '172.26.131.13',
-            // port: 5984,
             user: 'admin',
-            pass: 'yahui'
+            pass: 'admin'
         }
     });
+
+    // const couchAuth = new NodeCouchDb({
+    //     auth: {
+    //         user: 'admin',
+    //         pass: 'admin'
+    //     }
+    // });
     return new Promise((resolve, reject) =>{
         const dbName = "echarts";
         let viewUrl = ''
@@ -31,12 +47,13 @@ module.exports.getFileJsonData = (filePath) =>{
             viewUrl = '_design/by_city_name/_view/city?key="Darwin"';
         }
         // const viewUrl = '_design/by_city_name/_view/city?key='+filePath;
-        // console.log(viewUrl)
+        console.log(viewUrl)
         // const viewUrl = '_design/all_cities/_view/all';
-        couchAuth.get(dbName, viewUrl).then(({data, headers, status}) => {
+        couchExternal.get(dbName, viewUrl).then(({data, headers, status}) => {
             // data is json response
             // headers is an object with all response headers
             // status is statusCode number
+            console.log('fffffff')
             const cities = data.rows
             // const o = cities.forEach(myFunction);
             // var value = new Array()

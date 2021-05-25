@@ -19,8 +19,14 @@ const canberraRouter = {
             meta: { title: 'Pie Chart', noCache: true }
         },
         {
+            path: 'rose',
+            component: () => import('@/views/canberra/canberraRoseChart'),
+            name: 'RoseChart',
+            meta: { title: 'Rose Chart', noCache: true }
+        },
+        {
             path: 'word_cloud',
-            component: () => import('@/views/charts/word-cloud'),
+            component: () => import('@/views/canberra/canberraWordCloud'),
             name: 'WordCloudChart',
             meta: { title: 'Word Cloud Chart', noCache: true }
         }

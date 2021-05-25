@@ -13,10 +13,26 @@ import holbartRouter from '@/router/modules/holbart'
 Vue.use(Router)
 
 export const constantRoutes = [
+  // {
+  //   // path: '/',
+  //   // redirect: '/login',
+  //   path: '/login',
+  //   component: () => import('@/views/login/index1')
+  // },
+  // {
+  //   path: '/redirect',
+  //   component: Layout,
+  //   hidden: true,
+  //   children: [
+  //     {
+  //       path: '/redirect/:path(.*)',
+  //       component: () => import('@/views/redirect/index')
+  //     }
+  //   ]
+  // },
   {
     path: '/login',
-    component: () => import('@/views/login/index'),
-    hidden: true
+    component: () => import('@/views/login/index1'),
   },
   {
     path: '/',
@@ -25,7 +41,8 @@ export const constantRoutes = [
     children: [{
       path: 'dashboard',
       name: 'Dashboard',
-      component: () => import('@/views/dashboard/index'),
+      // component: () => import('@/views/dashboard/index'),
+      component: () => import('@/views/charts/radar'),
       meta: { title: 'Dashboard', icon: 'dashboard' }
     }]
   },
