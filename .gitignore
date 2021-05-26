@@ -9,7 +9,7 @@ ansible/config/GitHubKey
 ansible/.dist/
 ansible/roles/create-instances/templates/.ansible-hosts.j2.swp
 
-stream/env/
+twitter_harvesting/env/
 
 *.pyc
 
@@ -20,4 +20,5 @@ config_*.json
 setup_only.sh
 setup.sh
 init.sh
-streamTweets.py
+
+.gitignore

@@ -19,7 +19,7 @@
 
 - name: clone source code from git
   git:
-    repo: git@github.com:YahuiWen/ccc_assign2_group.git
+    repo: git@github.com:YahuiWen/ccc-group.git
     key_file: /home/ubuntu/.ssh/GitHubKey
     dest: '{{ remote_working_directory }}'
 # git clone through ssh

@@ -1,0 +1,6 @@
+tweepy
+nltk
+textblob
+couchdb
+shapely
+nltk
