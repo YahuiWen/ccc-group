@@ -14,6 +14,21 @@ Yujing Yang		(979613)
 
 Zhiyi Qiao		(1156080)
 
+# Frontend Setup
+Vue.js is an open source JavaScript framework, which can be used in building user interfaces or single-page applications. We used Vue.js framework to implement a front end website. We adopt the famous vue template — vue-admin-template to construct the basis layout. Also we found that Apache ECharts is a powerful and free visualization library which allows users to create interactive and customizable charts. We can easily install the echarts library with the node package manager (NPM). Then, echarts could render different types of diagrams including bar, pie, map, radar and even word cloud charts. 
+
+vue, element-ui, echarts
+
+Frontend (http://http://172.26.131.13:8080/)
+## enter the project directory
+cd frontend
+## install dependency
+npm install
+
+## run
+npm run serve
+This will automatically open http://localhost:8080
+
 # Backend 
 
 Koa2 and web socket
@@ -31,21 +46,7 @@ npm install
 node app.js
 
 
-
-# Frontend Setup
-
-vue, element-ui, echarts
-
-## enter the project directory
-cd frontend
-## install dependency
-npm install
-
-## run
-npm run serve
-This will automatically open http://localhost:8080
-
 # Build
-## run build to genertate dist file.
+## run build to genertate frontend dist file for docker
 npm run build
 
