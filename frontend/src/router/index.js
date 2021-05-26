@@ -32,8 +32,31 @@ export const constantRoutes = [
   // },
   {
     path: '/login',
-    component: () => import('@/views/login/index1'),
+    component: () => import('@/views/login/loginPage'),
   },
+  // {
+  //   path: '/',
+  //   component: Layout,
+  //   redirect: '/login',
+  //   children: [{
+  //     path: 'login',
+  //     name: 'Login',
+  //     // component: () => import('@/views/dashboard/index'),
+  //     component: () => import('@/views/login/loginPage'),
+  //     meta: { title: 'Home', icon: 'dashboard' }
+  //   }]
+  // },
+  // {
+  //   path: '/dashboard',
+  //   component: Layout,
+  //   children: [{
+  //     path: 'dashboard',
+  //     name: 'Dashboard',
+  //     // component: () => import('@/views/dashboard/index'),
+  //     component: () => import('@/views/charts/map1'),
+  //     meta: { title: 'Dashboard', icon: 'dashboard' }
+  //   }]
+  // },
   {
     path: '/',
     component: Layout,
@@ -42,7 +65,7 @@ export const constantRoutes = [
       path: 'dashboard',
       name: 'Dashboard',
       // component: () => import('@/views/dashboard/index'),
-      component: () => import('@/views/charts/radar'),
+      component: () => import('@/views/charts/map1'),
       meta: { title: 'Dashboard', icon: 'dashboard' }
     }]
   },

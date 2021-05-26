@@ -159,8 +159,8 @@ export default {
           source: [
             ['topic', 'medical', 'education', 'entertainment', 'transport', 'environment'],
             ['positive', this.alLData.medical_pos, this.alLData.education_pos, this.alLData.entertainment_pos, this.alLData.transport_pos, this.alLData.environment_pos],
-            ['negative', this.alLData.medical_neu, this.alLData.education_neu, this.alLData.entertainment_neu, this.alLData.transport_neu, this.alLData.environment_neu],
-            ['neutral', this.alLData.medical_neg, this.alLData.education_neg, this.alLData.entertainment_neg, this.alLData.transport_neg, this.alLData.environment_neg]
+            ['neutral', this.alLData.medical_neu, this.alLData.education_neu, this.alLData.entertainment_neu, this.alLData.transport_neu, this.alLData.environment_neu],
+            ['negative', this.alLData.medical_neg, this.alLData.education_neg, this.alLData.entertainment_neg, this.alLData.transport_neg, this.alLData.environment_neg]
           ]
         },
         series: [{

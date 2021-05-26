@@ -43,7 +43,7 @@ export default {
     this.$socket.send({
       action: 'getWordData',
       socketType: 'wordData',
-      cityName: 'Holbart',
+      cityName: 'Hobart',
       value: ''
     })
   },

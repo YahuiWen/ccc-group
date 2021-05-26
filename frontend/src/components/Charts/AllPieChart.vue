@@ -111,7 +111,6 @@ export default {
     updateChart() {
       // const name = ''
       // const value = this.alLData
-
       const updateOption = {
         title: [
           {
@@ -151,7 +150,7 @@ export default {
             textAlign: 'center'
           },
           {
-            subtext: 'Holbart',
+            subtext: 'Hobart',
             left: '45%',
             top: '99%',
             textAlign: 'center'
@@ -167,12 +166,12 @@ export default {
         toolbar: {},
         dataset: {
           source: [
-            ['topic', 'Melbourne', 'Sydney', 'Darwin', 'Adelaide', 'Perth', 'Brisbane','Holbart','Canberra' ],
-            ['Medical',     100, 50,  140, 120, 40, 200, 60, 150],
-            ['Education',   150, 250, 40,  80,  35, 50,  110, 50],
-            ['Environment', 125, 105, 195, 95,  80, 75,  70,  75],
-            ['Transport',    60, 100, 110, 100, 60, 20,  50,  100],
-            ['Entertainment',40, 70,  150, 100, 50, 70,  100, 130]
+            ['topic', 'Melbourne', 'Sydney', 'Darwin', 'Adelaide', 'Perth', 'Brisbane','Hobart','Canberra' ],
+            ['Medical',     355, 954,  4, 774, 75, 145, 13, 46],
+            ['Education',   772, 1827, 11,  1496,  189, 50,  45, 109],
+            ['Environment', 419, 4013, 3, 902,  124, 207,  34,  84],
+            ['Transport',    499, 505, 13, 967, 85, 194,  19,  63],
+            ['Entertainment',1186, 1385,  48, 2703, 329, 523,  38, 119]
           ]
         },
         series: [{
@@ -232,7 +231,7 @@ export default {
         }, {
           type: 'pie',
           radius: '20%',
-          center: ['15%', '90%'],
+          center: ['15%', '80%'],
           label: '',
           subtext: 'Brisbane',
           textAlign: 'center',
@@ -243,9 +242,9 @@ export default {
         }, {
           type: 'pie',
           radius: '20%',
-          center: ['45%', '90%'],
+          center: ['45%', '80%'],
           label: '',
-          subtext: 'Holbart',
+          subtext: 'Hobart',
           textAlign: 'center',
           encode: {
             itemName: 'topic',
@@ -254,7 +253,7 @@ export default {
         }, {
           type: 'pie',
           radius: '20%',
-          center: ['75%', '90%'],
+          center: ['75%', '80%'],
           label: '',
           subtext: 'Canberra',
           textAlign: 'center',

@@ -44,7 +44,7 @@ export default {
     this.$socket.send({
       action: 'getData',
       socketType: 'pie',
-      cityName: 'Holbart',
+      cityName: 'Hobart',
       value: ''
     })
     // this.updateChart()

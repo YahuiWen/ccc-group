@@ -12,7 +12,7 @@ module.exports.getAllFileJsonData = (filePath) =>{
         }
     });
     return new Promise((resolve, reject) =>{
-        const dbName = "echarts";
+        const dbName = "analysis2";
 
         // const viewUrl = '_design/by_city_name/_view/city?key='+filePath;
         // console.log(viewUrl)

@@ -78,38 +78,38 @@ export default {
         },
         yAxis: {
           type: 'category',
-          data: ['VIC', 'NSW', 'ACT', 'QLD', 'SA', 'WA', 'TAS', 'NTE']
+          data: ['Melbourne', 'Sydney', 'Darwin', 'Adelaide', 'Perth', 'Brisbane','Hobart','Canberra']
         },
         series: [
           {
             name: 'income',
             type: 'bar',
-            data: [18203, 23489, 29034, 104970, 131744, 630230]
+            data: [1247047, 1161643, 581505, 343888,515328,58276,32561,102036]
           },
           {
             name: 'medical',
             type: 'bar',
-            data: [19325, 23438, 31000, 121594, 134141, 681807]
+            data: [355, 954,  4, 774, 75, 145, 13, 46]
           },
           {
             name: 'education',
             type: 'bar',
-            data: [19325, 23438, 31000, 121594, 134141, 681807]
+            data: [772, 1827, 11,  1496,  189, 50,  45, 109]
           },
           {
             name: 'environment',
             type: 'bar',
-            data: [19325, 23438, 31000, 121594, 134141, 681807]
+            data: [419, 4013, 3, 902,  124, 207,  34,  84]
           },
           {
             name: 'transport',
             type: 'bar',
-            data: [19325, 23438, 31000, 121594, 134141, 681807]
+            data: [499, 505, 13, 967, 85, 194,  19,  63]
           },
           {
             name: 'entertainment',
             type: 'bar',
-            data: [19325, 23438, 31000, 121594, 134141, 681807]
+            data: [1186, 1385,  48, 2703, 329, 523,  38, 119]
           }
         ]
       }

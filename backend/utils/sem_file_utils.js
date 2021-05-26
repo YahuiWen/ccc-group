@@ -14,7 +14,7 @@ module.exports.getFileJsonData = (filePath) =>{
 
     // });
     return new Promise((resolve, reject) =>{
-        const dbName = "echarts";
+        const dbName = "analysis2";
         let viewUrl = ''
         if (filePath === 'Melbourne') {
             viewUrl = '_design/by_sem_analy/_view/sem?key="Melbourne"';
@@ -28,8 +28,8 @@ module.exports.getFileJsonData = (filePath) =>{
             viewUrl = '_design/by_sem_analy/_view/sem?key="Adelaide"';
         }else if (filePath === 'Perth') {
             viewUrl = '_design/by_sem_analy/_view/sem?key="Perth"';
-        }else if (filePath === 'Holbart') {
-            viewUrl = '_design/by_sem_analy/_view/sem?key="Holbart"';
+        }else if (filePath === 'Hobart') {
+            viewUrl = '_design/by_sem_analy/_view/sem?key="Hobart"';
         }else if (filePath === 'Darwin') {
             viewUrl = '_design/by_sem_analy/_view/sem?key="Darwin"';
         }

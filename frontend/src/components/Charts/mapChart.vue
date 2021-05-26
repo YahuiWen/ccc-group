@@ -62,8 +62,8 @@ export default {
         },
         visualMap: {
           left: 'right',
-          min: 6000,
-          max: 70000,
+          min: 50000,
+          max: 1300000,
           inRange: {
             color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026']
           },
@@ -86,7 +86,7 @@ export default {
             name: 'AUS INCOME DISTRIBUTION',
             type: 'map',
             roam: true,
-            map: 'USA',
+            map: 'AUS',
             emphasis: {
               label: {
                 show: true

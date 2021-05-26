@@ -14,8 +14,8 @@ const chartsRouter = {
     {
       path: 'allpie',
       component: () => import('@/views/charts/all-pie'),
-      name: 'Topic',
-      meta: { title: 'Topic', noCache: true }
+      name: 'Pie',
+      meta: { title: 'Pie', noCache: true }
     },
     // {
     //   path: 'rose',

@@ -5,9 +5,9 @@ const holbartRouter = {
     path: '/holbart',
     component: Layout,
     redirect: 'noRedirect',
-    name: 'Holbart',
+    name: 'Hobart',
     meta: {
-        title: 'Holbart',
+        title: 'Hobart',
         icon: 'chart'
     },
     children: [
