@@ -18,7 +18,8 @@ npm install
 node app.js
 
 
-Frontend Setuo
+
+Frontend Setup
 
 vue, element-ui, echarts
 
