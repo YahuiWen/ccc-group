@@ -2,12 +2,12 @@
 
 Team 67
 
-Team Member
+Team Member:
 Tianqi Lan		(1164121)
-Yahui Wen		(1044061)   
-Hantong Xing		(1164099)  
+Yahui Wen		  (1044061)
+Hantong Xing	(1164099)
 Yujing Yang		(979613)
-Zhiyi Qiao			(1156080)
+Zhiyi Qiao		(1156080)
 
 Backend 
 
