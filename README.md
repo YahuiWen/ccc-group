@@ -1,5 +1,13 @@
 # ccc-group
-The current version is v4.0+ build on vue-cli. If you want to use the old version , you can switch branch to tag/3.11.0, it does not rely on vue-cli
+
+Team 67
+
+Team Member
+Tianqi Lan		(1164121)
+Yahui Wen		(1044061)   
+Hantong Xing		(1164099)  
+Yujing Yang		(979613)
+Zhiyi Qiao			(1156080)
 
 Backend 
 
