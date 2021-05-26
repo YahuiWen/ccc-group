@@ -7,7 +7,7 @@ Koa2 and web socket
 
 Backend Setuo
 # clone the project
-git clone https://github.com/YahuiWen/cc-group
+git clone https://github.com/YahuiWen/ccc-group
 
 # enter the project directory
 cd backend
